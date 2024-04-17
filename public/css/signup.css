@@ -1,0 +1,243 @@
+*{
+    margin:0;
+    padding:0;
+
+}
+body{
+    min-height: 90vh;
+    background-color: rgb(220,220,220);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('http://localhost:8000/img/back.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+
+
+}
+
+.container{
+    width:550px;
+    height:960px;
+    border-radius:3vh;
+    /* background-color: inherit; */
+    position: relative;
+    transition: transform 2s ease-in-out; 
+    /* transform-style: preserve-3d; */
+    /* margin-bottom: px; */
+    /* box-shadow: 1px 2px 3px 4px red; */
+    left:31px;
+    background: rgba(0,0,0,0.2);
+    /* background: transparent;
+    border-radius: 40px;
+    border:1px solid #ddd; */
+    backdrop-filter: blur(1px);
+    margin-top: 50px;
+    
+
+}
+
+
+.top{
+    text-align: center;
+    margin-bottom: 10vh;
+}
+.image{
+    width:10vh;
+    height:10vh;
+    position: relative;
+    left:20vh;
+    top:3vh;
+    margin-bottom: 2vh;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.top span{
+    position: relative;
+    top:4vh;
+    font-weight: bold;
+    font-size: 3vh;
+    letter-spacing: 0.2vh;
+
+}
+.inputBox{
+    border: 1px solid;
+    border-radius: 4vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left:4.5vh;
+    width:45vh;
+    height: 7vh;
+    margin-bottom: 4vh;
+    margin-right: 5vh;
+
+}
+
+.input{
+    height:6vh;
+    width:40vh;
+    margin-left:4vh;
+    border: none;
+    outline: none;
+    background-color: inherit;
+
+}
+i{
+    margin-left:2vh;
+}
+
+.submit{
+    margin-top: 2vh;
+    height: 6vh;
+    width:12vh;
+    border: none;
+    background-color: rgba(40,40,40,0.2);
+    border-radius: 5vh;
+    cursor:pointer;
+    font-weight: bold;
+}
+form{
+    text-align: center;
+}
+.user{
+    margin-top: 6.3vh;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.user span{
+    margin-left: 1vh;
+    font-size:3vh;
+    font-weight: bold;
+    color:blue;
+}
+.show-password{
+    border:none;
+    margin-left:-11%;
+    font-size: 1.5em;;
+}
+.inputBoxBack{
+    height:7vh;
+    margin-bottom: 4vh;
+    margin-right:20vh;
+
+}
+.remember{
+    border: none;
+    font-size: 1.5em;
+}
+.imageBack{
+    width:8vh;
+    height: 8vh;
+    left:21.3vh;
+
+
+}
+.topBack{
+    margin-bottom: 7vh;
+
+}
+.submitBack{
+    margin-top: 0vh;
+    margin-bottom: 2vh;
+    height: 6vh;
+    width:10vh;
+
+}
+.userBack{
+    margin-top: 2.5vh;
+
+}
+.containerFront{
+   
+    position:absolute;
+    z-index: 2;
+    transition: 2s ease-in-out;
+    
+}
+.containerBack{
+    position: absolute;
+    z-index: 1;
+    transform: rotateY(180deg); 
+    transition: 2s ease-in-out;
+    backface-visibility: hidden;
+    
+}
+a{
+    text-decoration:none;
+}
+#togglePassword{
+    cursor:pointer;
+    
+}
+.background img{
+    margin-left:10px;
+} 
+
+input::placeholder{
+    color:white;
+    font-size: 1.3rem;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    .container {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    /* Input styles */
+    .inputBox {
+        margin-left: 2.5vh;
+        width: 70%; /* Adjust as needed */
+        max-width: 35vh; /* Maximum width */
+    }
+
+    .input {
+        width: 60%; /* Adjust as needed */
+        max-width: 30vh; /* Maximum width */
+    }
+
+    .submit {
+        width: 40%; /* Adjust as needed */
+        max-width: 10vh; /* Maximum width */
+    }
+
+    .top span {
+        font-size: 2.5vh;
+    }
+
+    .user {
+        margin-top: 5vh;
+        font-size: 1em;
+    }
+
+    .user span {
+        font-size: 2vh;
+    }
+
+    .show-password {
+        font-size: 1.2em;
+    }
+
+    .inputBoxBack {
+        margin-right: 15vh;
+    }
+
+    .submitBack {
+        width: 40%; /* Adjust as needed */
+        max-width: 8vh; /* Maximum width */
+    }
+
+    .userBack {
+        margin-top: 2vh;
+    }
+
+    /* Add more responsive styles as needed */
+}

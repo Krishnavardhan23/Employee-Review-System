@@ -1,0 +1,285 @@
+*
+{
+    padding:0px;
+    margin:0px;
+}
+/* navbar */
+#navbar{
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+}
+
+#navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 100%;
+    width:100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+#logo{
+    margin: 10px 34px;
+}
+
+#logo img{
+    height: 59px;
+    margin: 3px 6px;
+}
+#navbar ul{
+    display: flex;
+    font-family: 'Baloo Bhai', cursive;
+}
+
+#navbar ul li{ 
+    list-style: none;
+    font-size: 1.3rem;
+}
+
+#navbar ul li a{
+    color: white;
+    /* display: block; */
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+#navbar ul li a:hover{
+    color: black;
+    background-color: white;
+}
+#navbar .btn {
+    margin-left: auto; 
+    padding: 15px 20px;
+    margin-right: 15px;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+#navbar .btn:hover
+{
+    letter-spacing: 0.1rem;
+    color: black;
+    background-color: #fff;
+}
+/* home section */
+#home{
+    display: flex;
+    flex-direction: column;
+    padding:3px 200px;
+    height: 550px;
+    justify-content: center;
+    align-items: center;
+}
+
+#home::before{ 
+    content: "";
+    position: absolute;
+    background: url('img/Home.png') no-repeat center center/cover;
+    height: 642px;
+    top:0px;
+    left:0px;
+    width: 100%;
+    z-index: -1;
+    opacity:0.89;
+}
+
+#home h1{
+    color:white;
+    text-align: center;
+    font-family: 'Baloo Bhai', cursive;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+#home p{
+    color:white;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Bree Serif', serif;
+}
+/* Services Section */
+#services{
+    margin: 34px;
+    display: flex;
+}
+#services .box{ 
+    border: 2px solid brown;
+    padding: 34px;
+    margin: 2px 55px;
+    border-radius: 28px;
+    background: #f2f2f2;
+    margin-bottom: 20px;
+}
+
+#services .box img{ 
+   height: 160px;
+   margin: auto;
+   display: block;
+}
+
+#services .box p{
+    font-family: 'Bree Serif', serif;
+
+}
+
+/* Employee section */
+#Employee-section
+{
+    background:rgb(121, 91, 69);
+    /* border: 2px solid red; */
+}
+#Employee-section h2
+{
+    color: white;
+}
+#Employee-container
+{
+    /* border: 2px solid red; */
+    margin: 55px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#Employee-container .Employee
+{
+    /* border: 2px solid yellow; */
+    padding: 34px;
+    margin: 2px 55px;
+    border-radius: 45px;
+    background: #f2f2f2;
+    margin-bottom: 20px;
+}
+#Employee-container .Employee img
+{
+    height: 160px;
+   margin: auto;
+   display: block;
+}
+#Announcement
+{
+    position: relative;
+    margin: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.joinusimg img {
+    height: 655px; 
+}
+#Announcement::before
+{
+    content: "";
+    position: absolute;
+    background: url('img/Announcement.png') no-repeat center center/cover;
+    height: 800px;
+    top:0px;
+    left:0px;
+    width: 100%;
+    z-index: -1;
+    opacity:0.89;
+}
+
+#Join-us h1
+{
+    color:aquamarine
+}
+footer{
+    background: black;
+    color: white;
+    padding: 9px 20px;
+}
+/*Utility*/
+.h-primary{
+    font-family: 'Bree Serif', serif;
+    font-size: 3.8rem;
+    padding: 12px;
+}
+
+.h-secondary{
+    font-family: 'Bree Serif', serif;
+    font-size: 2.3rem;
+    padding: 12px;
+}
+
+.btn{
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: rgb(56, 5, 5);
+    color: white;
+    margin: 17px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor:pointer;
+    box-shadow: inset;
+}
+
+.center{
+    text-align: center;
+}
+
+
+/* Pop up page display
+#popuppage {
+    position: fixed;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: black;
+    z-index: 1000;
+    width: 850px;
+    height: 400px;
+    padding: 80px 50px 20px;
+    transition: 0.5s;
+    border-radius: 35px;
+    visibility: hidden;
+}
+#popuppage.active {
+    visibility: visible;
+}
+#popuppage h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: #d2a916;
+    font-size: 50px;
+    margin: 10px 10px;
+}
+#popuppage .box {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#popuppage .tons {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+input, button {
+    width: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    outline: none;
+    font-size: 1rem;
+    font-family: serif;
+}
+button {
+    border: none;
+    width: 150px;
+    letter-spacing: 0.1rem;
+    background-color: #7c3af8;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+}

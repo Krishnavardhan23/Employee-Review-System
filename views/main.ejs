@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Solutions</title>
+    <link rel="icon" href="img/3.png">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Roboto:ital,wght@0,400;0,900;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /><link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<style>
+    *
+{
+    padding:0px;
+    margin:0px;
+}
+/* navbar */
+#navbar{
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+}
+
+#navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 100%;
+    width:100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+#logo{
+    margin: 10px 34px;
+}
+
+#logo img{
+    height: 59px;
+    margin: 3px 6px;
+}
+#navbar ul{
+    display: flex;
+    font-family: 'Baloo Bhai', cursive;
+}
+
+#navbar ul li{ 
+    list-style: none;
+    font-size: 1.3rem;
+}
+
+#navbar ul li a{
+    color: white;
+    /* display: block; */
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+#navbar ul li a:hover{
+    color: black;
+    background-color: white;
+}
+#navbar .btn {
+    margin-left: auto; 
+    padding: 15px 20px;
+    margin-right: 15px;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+#navbar .btn:hover
+{
+    letter-spacing: 0.1rem;
+    color: black;
+    background-color: #fff;
+}
+/* home section */
+#home{
+    display: flex;
+    flex-direction: column;
+    padding:3px 200px;
+    height: 550px;
+    justify-content: center;
+    align-items: center;
+}
+
+#home::before{ 
+    content: "";
+    position: absolute;
+    background: url('img/Home.png') no-repeat center center/cover;
+    height: 642px;
+    top:0px;
+    left:0px;
+    width: 100%;
+    z-index: -1;
+    opacity:0.89;
+}
+
+#home h1{
+    color:white;
+    text-align: center;
+    font-family: 'Baloo Bhai', cursive;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+#home p{
+    color:white;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Bree Serif', serif;
+}
+/* Services Section */
+#services{
+    margin: 34px;
+    display: flex;
+}
+#services .box{ 
+    border: 2px solid brown;
+    padding: 34px;
+    margin: 2px 55px;
+    border-radius: 28px;
+    background: #f2f2f2;
+    margin-bottom: 20px;
+}
+
+#services .box img{ 
+   height: 160px;
+   margin: auto;
+   display: block;
+}
+
+#services .box p{
+    font-family: 'Bree Serif', serif;
+
+}
+
+/* Employee section */
+#Employee-section
+{
+    background:rgb(121, 91, 69);
+    /* border: 2px solid red; */
+}
+#Employee-section h2
+{
+    color: white;
+}
+#Employee-container
+{
+    /* border: 2px solid red; */
+    margin: 55px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#Employee-container .Employee
+{
+    /* border: 2px solid yellow; */
+    padding: 34px;
+    margin: 2px 55px;
+    border-radius: 45px;
+    background: #f2f2f2;
+    margin-bottom: 20px;
+}
+#Employee-container .Employee img
+{
+    height: 160px;
+   margin: auto;
+   display: block;
+}
+#Announcement
+{
+    position: relative;
+    margin: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.joinusimg img {
+    height: 655px; 
+}
+#Announcement::before
+{
+    content: "";
+    position: absolute;
+    background: url('img/Announcement.png') no-repeat center center/cover;
+    height: 800px;
+    top:0px;
+    left:0px;
+    width: 100%;
+    z-index: -1;
+    opacity:0.89;
+}
+
+#Join-us h1
+{
+    color:aquamarine
+}
+footer{
+    background: black;
+    color: white;
+    padding: 9px 20px;
+}
+/*Utility*/
+.h-primary{
+    font-family: 'Bree Serif', serif;
+    font-size: 3.8rem;
+    padding: 12px;
+}
+
+.h-secondary{
+    font-family: 'Bree Serif', serif;
+    font-size: 2.3rem;
+    padding: 12px;
+}
+
+.btn{
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: rgb(56, 5, 5);
+    color: white;
+    margin: 17px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor:pointer;
+    box-shadow: inset;
+}
+
+.center{
+    text-align: center;
+}
+
+
+/* Pop up page display
+#popuppage {
+    position: fixed;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: black;
+    z-index: 1000;
+    width: 850px;
+    height: 400px;
+    padding: 80px 50px 20px;
+    transition: 0.5s;
+    border-radius: 35px;
+    visibility: hidden;
+}
+#popuppage.active {
+    visibility: visible;
+}
+#popuppage h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: #d2a916;
+    font-size: 50px;
+    margin: 10px 10px;
+}
+#popuppage .box {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#popuppage .tons {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+input, button {
+    width: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    outline: none;
+    font-size: 1rem;
+    font-family: serif;
+}
+button {
+    border: none;
+    width: 150px;
+    letter-spacing: 0.1rem;
+    background-color: #7c3af8;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+</style>
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="img/3.png" alt="ASlogo.png">
+        </div>
+        <ul>
+            <li class="item"><a href="#home">Home</a></li>
+            <li class="item"><a href="#services-container">Services</a></li>
+            <li class="item"><a href="#Employee-section">Best Employees</a></li>
+            <li class="item"><a href="#Announcement">Announcement</a></li>
+        </ul>
+        <a class="Loginbtn btn" href="/signup">Login Now</a>
+    </nav>
+    
+    <section id="home">
+        <h1 class="h-primary">Welcome to Alpha Solutions</h1>
+        <p>Coming together is a beginning, staying together is progress, and working together is success.</p>
+    </section>
+    <section id="services-container">
+    <h1 class="h-primary center">Our Services</h1>
+    <div id="services">
+        <div class="box">
+            <img src="img/webdev.png" alt="">
+            <h2 class="h-secondary center">Web-Design</h2>
+            <p class="center">        
+             Crafting visually appealing and user-friendly website layouts.
+            Implementing interactive and responsive features using HTML, CSS, and JavaScript.
+            Building server-side functionalities and databases using frameworks like Node.js or Django.
+            Creating online stores with secure payment gateways and inventory management systems.
+            Implementing platforms like WordPress or Drupal for easy content updating.</p>
+        </div>
+        <div class="box">
+            <img src="img/dataanal.png" alt="">
+            <h2 class="h-secondary center">Data analytics</h2>
+            <p class="center">
+                 Gathering data from various sources including databases, APIs, and sensors.
+                 Processing raw data to remove errors and inconsistencies.
+                Using statistical techniques and algorithms to uncover insights and trends within the data.
+                Data Presenting findings through interactive charts, graphs, and dashboards for easy interpretation.
+                Predic Building models to forecast future outcomes based on historical data patterns.</p>
+        </div>
+        <div class="box">
+            <img src="img/gdesign.png" alt="">
+            <h2 class="h-secondary center">Graphic-Design</h2>
+            <p class="center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, culpa suscipit error
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et qui, repudiandae similique nam, recusandae quidem ab asperiores ex, aut fugit labore veritatis facere?
+                sint delectus ab dolorum nam. Debitis facere, incidunt voluptates eos, mollitia voluptatem iste sunt
+                voluptas beatae facilis labore, omnis sint quae eum.</p>
+        </div>
+    </div>
+    <!-- <h2 class="h-primary center">And Many More..........</h2> -->
+    </section>
+    <section id="Employee-section">
+        <h1 class="h-primary center">Best Employees (Feb 1st-Feb29th)</h1>
+        <h2 class="h-secondary center">The Best view comes after the hardest climb </h2>
+        <div id="Employee-container">
+            <div class="Employee">
+                <img src="img/Emp1.png" alt="best-employee-1">
+            </div>
+            <div class="Employee">
+                <img src="img/Emp-2.png" alt="best-employee-1">
+            </div>
+            <div class="Employee">
+                <img src="img/Emp-3.png" alt="best-employee-1">
+            </div>
+        </div>
+    </section>
+    <section id="Announcement">
+        <h1 class="h-primary center">We are Hiring....Join Us</h1>
+        <div class="joinusimg">
+            <img src="img/joinusback.png">
+        </div>
+    </section>
+    <footer>
+        <div class="center">
+            Copyright &copy; www.AlphaSolutions.com .. All rights reserved!
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "fsd",
+  "version": "1.0.0",
+  "description": "employee review system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "krishna",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "connect-mongodb-session": "^5.0.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.2.2",
+    "nodemailer": "^6.9.13",
+    "nodemon": "^3.1.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  }
+}

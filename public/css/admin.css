@@ -1,0 +1,156 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  height: 150px;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.left, .right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.middle {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+}
+.right button
+{
+    padding: 15px;
+    background-color: #be8f3e;
+    color: #333;
+    margin-left: auto;
+  cursor: pointer;
+}
+.right a
+{
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+    font-weight: bold;
+}
+.right h1
+{
+  color: white;
+}
+
+.nav-img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+  #main
+  {
+    display: flex;
+    justify-content: space-between;
+  }
+  #add-user {
+    padding: 10px 20px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s ease; 
+    margin: 15px;
+  }
+  
+  #add-user:hover {
+    background-color: #45a049; 
+  }
+  
+  #add-user:focus {
+    outline: none;
+  }
+  
+  #content
+  {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:250px;
+    margin-right: 100px;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+#content a {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #007bff; 
+  color: white; 
+  text-decoration: none; 
+  border-radius: 4px; 
+  margin-right: 5px; 
+}
+
+#content a:hover {
+  background-color: #0056b3; 
+}
+
+
+
+#divbar {
+ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 250px;
+  margin-right: 100px;
+  margin-bottom: 30px;
+  background-color: rgba(124, 104, 78, 0.538);
+  font-family: "Poppins", sans-serif;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  padding: 10px; 
+  margin-right: 5px;
+  border-radius: 25px;
+  border: none; 
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+.search img {
+  width: 24px; 
+  height: auto; 
+  margin-left: -30px; 
+  cursor: pointer;
+}

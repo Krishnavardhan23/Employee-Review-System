@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee rating</title>
+    <link rel="stylesheet" href="css/crud.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left">
+            <img src="img/3.png" class="nav-img">
+        </div>
+        <div class="middle">
+            <h1>WELCOME BACK ADMIN</h1>
+        </div>
+        <div class="right">
+            <h3>Admin Name</h3>
+        </div>
+    </nav>
+    <div id="divbar">
+        <a class="btn" href="/Dashboard/<%=userId%>" >Back</a>
+    </div>
+    <form action="/update-rating?userid=<%= userId %>&empid=<%= employeeId %>" method="post">
+        <div class="form-group">
+            <label for="title" class="text-light">Employee's Current rating</label>
+            <input type="text" name="title" value="<%= emps.rating %>" >
+        </div>
+        <div class="form-group">
+            <label for="Role" class="text-light">Update rating</label>
+            <input type="text" name="rating" value="" placeholder="Update Rating">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+</body>
+</html>

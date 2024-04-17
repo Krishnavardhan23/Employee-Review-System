@@ -1,0 +1,132 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.navbar {
+  height: 150px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.left, .right {
+  width: 35%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.middle {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+}
+
+.table-container {
+  border: 1px solid #bbb;
+  width: 70%;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.Employee-title {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+table {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 3px;
+  margin-top: 15px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-group input[type="date"] {
+  width: 100%;
+}
+
+.btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 50px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.confirm {
+  border: 1px solid #ddd;
+  width: 70%;
+  margin: 20px auto;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.text-light {
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+input[type="text"] {
+  padding: 10px; 
+  margin-bottom: 10px; 
+  border: 1px solid #cccccc; 
+  border-radius: 5px; 
+}
+
+input[type="text"]::placeholder {
+  color: #999999;
+}

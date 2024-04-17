@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="/img/3.png">
+    <link rel="stylesheet" href="/css/Dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left">
+            <img src="/img/3.png" class="nav-img">
+        </div>
+        <div class="middle">
+            <h1>Welcome Back </h1>
+        </div>
+        <div class="right">
+            <h1><%= user.empname %></h1>
+        </div>
+    </nav>
+    <div id="divbar">
+        <a class="btn" href="/admin/<%= user._id %>">Back</a>
+        <h2>ALL users List</h2>
+        <div class="search">
+            <input type="text" placeholder="Search User">
+            <img src="/img/search.png">
+        </div>
+      </div>
+      <section id="content">
+        <table>
+            <tr>
+                <th>Employee Name</th>
+                <th>Age</th>
+                <th>Role</th>
+                <th>Employee-Status</th>
+                <th>Ratings</th>
+                <th>CRUD</th>
+                <th>Promote</th>
+            </tr>
+            <% for(let i=0;i<emps.length;i++) {%>
+            <tr>
+                <td> <%= emps[i].empname %>  </td>
+                <td> <%= emps[i].age %>  </td>
+                <td><%= emps[i].role %></td>
+                <td><%= emps[i].Employeestatus %></td>
+                <td><%= emps[i].rating %></td>
+                <td>
+                    <% if(user.Employeestatus === "Manager"&& emps[i].Employeestatus !== "Admin" || user.Employeestatus=="Admin") { %>
+                        <a href="/assignwork?userId=<%= user._id %>&employeeId=<%= emps[i]._id %>">Assign work</a>
+                    <% } %>
+                    <% if(user.Employeestatus === "Admin" && emps[i].Employeestatus!="Admin") { %>
+                        <a class="btn" href="/deleteemp?userId=<%= user._id %>&employeeId=<%= emps[i]._id %>">Delete</a>
+                        <a href="/rateemp?userId=<%= user._id %>&employeeId=<%= emps[i]._id %>">Rate Employee</a>
+                        <a href="/empreviews?userId=<%= user._id %>&employeeId=<%= emps[i]._id %>">Reviews</a>
+                    <% } %>
+                </td>
+                <td>
+                    <% if(user.Employeestatus === "Admin" && emps[i].Employeestatus !== "Admin" && emps[i].Employeestatus !== "Manager") { %>
+                        <a href="#" onclick="promptPromotion('<%= emps[i].empname %>', '<%= emps[i]._id %>')">Promote Employee</a>
+                    <% } %>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+      </section>
+    
+    <script>
+        function promptPromotion(employeeName, employeeId) 
+{
+    const confirmation = window.confirm(`Are you sure you want to promote ${employeeName} to Manager?`);
+    if (confirmation) {
+        const adminCode = prompt("Please enter the admin code:");
+        if (adminCode !== null && adminCode !== "") {
+            promoteEmployee(employeeId, adminCode);
+        } else {
+            alert("Admin code cannot be empty. Try again");
+        }
+    }
+}
+
+function promoteEmployee(employeeId, adminCode) 
+{
+    const userId = '<%= user._id %>';
+    fetch('/promoteemp', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userId: userId,
+            employeeId: employeeId,
+            adminCode: adminCode
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message); 
+        window.location.reload(); 
+    })
+    .catch(error => {
+        console.error('Error promoting employee:', error);
+        alert('Error promoting employee. Please try again.');
+    });
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="icon" href="/img/3.png">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <a href="https://www.flaticon.com/free-icons/discover" title="discover icons"></a>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left">
+            <img src="/img/3.png" class="nav-img">
+        </div>
+        <div class="middle">
+            <h1>Welcome Back </h1>
+        </div>
+        <div class="right">
+            <h1><%= user.empname %></h1>
+            <button><a href="/signup">LOG OUT</a></button>
+        </div>
+    </nav>
+      <div id="main">
+          <!-- Pass user ID to the href attribute -->
+          <a id="add-user" href="/newempl/<%= user._id %>">Add Employee</a>
+          <a id="add-user" href="/empworks/<%= user._id%>">Assigned Works</a>
+          <a id="add-user" href="/Dashboard/<%= user._id %>">Dashboard</a>
+      </div>
+      <div id="divbar">
+        <h2>working Employees</h2>
+        <div class="search">
+            <input type="text" placeholder="Search User">
+            <img src="/img/search.png">
+        </div>
+
+      </div>
+      <section id="content">
+        <table>
+            <tr>
+                <th>Employee Name</th>
+                <th>Role</th>
+                <th>Age</th>
+                <th>Ratings</th>
+                <th>Workingon </th>
+            </tr>
+            <% for(let i = 0; i < emps.length; i++) {
+                const pendingProjects = emps[i].projectspending;
+                if (pendingProjects > 0) { %>
+                    <tr>
+                        <td><%= emps[i].empname %></td>
+                        <td><%= emps[i].role %></td>
+                        <td><%= emps[i].age %></td>
+                        <td><%= emps[i].rating %></td>
+                        <td><%= pendingProjects %> Projects</td>
+                    </tr>
+                <% }
+            } %>
+        </table>
+        
+      </section>
+
+      
+</body>
+</html>

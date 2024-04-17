@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <link rel="icon" href="/img/3.png">
+    <link rel="stylesheet" href="/css/crud.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left">
+            <img src="/img/3.png" class="nav-img">
+        </div>
+        <div class="middle">
+            <h1>Welcome Back </h1>
+        </div>
+        <div class="right">
+            <h1><%= user.empname %></h1>
+        </div>
+    </nav>
+    <div class="table-container">
+        <h2 class="Employee-tite">Add Employee</h2>
+        <div>
+            <a class="btn" href="/admin/<%= user._id %>">Back</a>
+            <form action="/add-employee/<%= user._id %>" method="post">
+                <div class="new-employee">
+                    <div class="form-group">
+                        <label  class="text-light">Employee Name</label>
+                        <input type="text" name="empname" value="" placeholder="Employee name">
+                    </div>
+                    <div class="form-group">
+                        <label for="desc" class="text-light">age</label>
+                        <input type="text" name="age" value="" placeholder="Type age here">
+                    </div>
+                    <div class="form-group">
+                        <label  class="text-light">Employee Mail ID</label>
+                        <input type="text" name="mail" value="" placeholder="Employee mail ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="Role" class="text-light">Role of the employee</label>
+                        <select name="role" id="role" class="input">
+                            <option value="Web Developer">Web Developer</option>
+                            <option value="Graphic Designer">Graphic Designer</option>
+                            <option value="Data Analyst">Data Analyst</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="Rating" class="text-light">Rating</label>
+                        <input type="text" name="rating" value="" placeholder="Default initial rating (2)">
+                    </div>
+                    <div class="form-group">
+                        <label for="code" class="text-light">Signupcode</label>
+                        <input type="text" name="code" value="" placeholder="Signup-Code">
+                    </div>
+                    <div class="form-group">
+                    <button type="submit" class="btn">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

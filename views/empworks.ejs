@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emp-Works</title>
+    <link rel="stylesheet" href="/css/empworks.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left">
+            <a href="/admin/<%=user._id%>">Back</a>
+        </div>
+        <div class="middle">
+            <img src="/img/3.png" class="nav-img">
+            
+        </div>
+        <div class="right">
+            <h1><%= user.empname %></h1>
+        </div>
+    </nav>
+    <div class="cont">
+        <% for (let i = 0; i < emps.length; i++) { %>
+            <div class="employee">
+                <h2><%= emps[i].empname %></h2>
+                <h3><%= emps[i].Employeestatus %></h3>
+                <ul>
+                    <% for (let j = 0; j < works.length; j++) { %>
+                        <% if (works[j].assignedTo.toString() === emps[i]._id.toString()) { %>
+                            <li>
+                                <h4><strong>Title:</strong> <%= works[j].title %></h4>
+                                <p><strong>Description:</strong> <%= works[j].description %></p>
+                            </li>
+                        <% } %>
+                    <% } %>
+                </ul>
+            </div>
+        <% } %>
+    </div>
+    
+</body>
+</html>

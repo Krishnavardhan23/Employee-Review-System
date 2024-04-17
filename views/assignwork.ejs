@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssignWork</title>
+    <link rel="icon" href="img/3.png">
+    <link rel="stylesheet" href="css/crud.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left">
+            <img src="img/3.png" class="nav-img">
+        </div>
+        <div class="middle">
+            <h1>WELCOME BACK ADMIN</h1>
+        </div>
+        <div class="right">
+            <h3>Admin Name</h3>
+        </div>
+    </nav>
+    <div class="table-container">
+        <h2 class="Employee-title">Assign work</h2>
+        <div>
+            <a class="btn" href="/Dashboard/<%=userId %>">Back</a>
+            <form action="" method="post">
+                <div class="update-employee">
+                    <div class="form-group">
+                        <label for="title" class="text-light">Title</label>
+                        <input type="text" name="worktitle" value="" placeholder="Type work Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="Desc" class="text-light">Description</label>
+                        <input type="text" name="desc" value="" placeholder="Description of the work to be done">
+                    </div>
+                    <div class="form-group">
+                        <label for="date" class="text-light">Due-date</label>
+                        <input type="date" name="date" value="" placeholder="Due-Date">
+                    </div>                    
+                    <div class="form-group">
+                    <button type="submit" class="btn">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
