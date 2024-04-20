@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #3a7bd5, #3a6073);
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+</style>
+<body>
+    <h1>New Employee Form</h1>
+    <form action="/createEmployee" method="POST">
+        <label for="code">Code:</label>
+        <input type="text" id="code" name="code" required><br><br>
+
+        <label for="mail">Mail:</label>
+        <input type="email" id="mail" name="mail" required><br><br>
+
+        <label for="empname">Employee Name:</label>
+        <input type="text" id="empname" name="empname" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" minlength="6" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br><br>
+
+        <label for="Employeestatus">Employee Status:</label>
+        <select id="Employeestatus" name="Employeestatus" required>
+            <option value="Admin">Admin</option>
+            <option value="Employee" selected>Employee</option>
+            <option value="Manager">Manager</option>
+        </select><br><br>
+
+        <label for="role">Role:</label>
+        <select id="role" name="role" required>
+            <option value="Web Developer">Web Developer</option>
+            <option value="Graphic Designer">Graphic Designer</option>
+            <option value="Data Analyst">Data Analyst</option>
+        </select><br><br>
+
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" value="2"><br><br>
+        <label for="projectspending">Projects Pending:</label>
+        <input type="number" id="projectspending" name="projectspending" value="0"><br><br>
+        <label for="admincode">Admin Code:</label>
+        <input type="number" id="admincode" name="admincode"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

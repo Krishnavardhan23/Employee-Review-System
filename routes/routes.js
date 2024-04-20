@@ -4,6 +4,8 @@ const Employee=require("../models");
 const Review = require('../models/review');
 const Work=require('../models/assignwork');
 const transporter=require('../controller/userauth');
+const hashPassword=require('../utils/hashpassword');
+const comparePassword = require("../utils/comparepassword");
 
 router.get("/", async (req, res) => 
 {
@@ -11,6 +13,71 @@ router.get("/", async (req, res) =>
     res.render("main");
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+});
+
+router.get("/enquiry",(req,res)=>
+{
+  try
+  {
+    res.render("enquiryform")
+  }
+  catch(error)
+  {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.get('/adminform', async (req, res) => {
+  try {
+      const emps = await Employee.find({}).select('Employeestatus').sort({ createdAt: -1 });
+      let flag = false; 
+      for (let i = 0; i < emps.length; i++) {
+          if (emps[i].Employeestatus === "Admin") 
+          {
+              flag = true; 
+              break; 
+          }
+      }
+      if (!flag) 
+      {
+          res.render("adminform");
+      }
+       else 
+       {
+          res.redirect("/signup");
+      }
+  } 
+  catch (error) 
+  {
+      res.status(500).json({ message: error.message });
+  }
+});
+
+router.post('/createEmployee', async (req, res) => 
+{
+  try 
+  {
+      const { code, mail, empname, password, age, Employeestatus, role, rating, projectspending, admincode } = req.body;
+      const hashedPassword = await hashPassword(password);
+      const newEmployee = new Employee({
+          code,
+          mail,
+          empname,
+          password: hashedPassword, 
+          age,
+          Employeestatus,
+          role,
+          rating,
+          projectspending,
+          admincode
+      });
+      await newEmployee.save();
+      res.redirect(`/signup`);
+  } 
+  catch (error) 
+  {
+      res.status(500).json({ message: error.message });
   }
 });
 
@@ -46,43 +113,47 @@ router.get("/user/:id", async (req, res) => {
 
 
 
-router.post('/login',async (req, res) => {
-    const { code } = req.body;
-    if (code) {
-      try {
-        const existingEmployee = await Employee.findOne({ code });
-        if (!existingEmployee) {
-          return res.status(404).json({ message: "Signup code not found" });
-        }
-
-        if (existingEmployee.password) {
-          return res.status(400).json({ message: "Password already set for this employee" });
-        }
-        
-        existingEmployee.password = req.body.password;
-        await existingEmployee.save();
-        return res.redirect("/signup");
-      } catch (error) {
-        return res.status(500).json({ message: error.message });
+router.post('/login', async (req, res) => {
+  const { code, password: plainPassword } = req.body; // Destructure password from req.body
+  if (code) {
+    try {
+      const existingEmployee = await Employee.findOne({ code });
+      if (!existingEmployee) {
+        return res.status(404).json({ message: "Signup code not found" });
       }
-    } else {
-      const { empname, password } = req.body;
 
-      try {
-        const employee = await Employee.findOne({ empname });
-
-        if (!employee) {
-          return res.status(404).json({ message: "Employee not found" });
-        }
-        if (employee.password !== password) {
-          return res.status(401).json({ message: "Incorrect password" });
-        }
-        return res.redirect(`/user/${employee._id}`);
-      } catch (error) {
-        return res.status(500).json({ message: error.message });
+      if (existingEmployee.password) {
+        return res.status(400).json({ message: "Password already set for this employee" });
       }
+      const hashedPassword = await hashPassword(plainPassword); // Use plainPassword here
+      existingEmployee.password = hashedPassword;
+      await existingEmployee.save();
+      return res.redirect("/signup");
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
     }
-  });
+  } else {
+    const { empname, password } = req.body;
+
+    try {
+      const employee = await Employee.findOne({ empname });
+
+      if (!employee) {
+        return res.status(404).json({ message: "Employee not found" });
+      }
+      const match=await comparePassword(password,employee.password);
+      if(!match)
+      {
+        return res.status(404).json({ message: "Invalid Credentials" });
+      }
+      return res.redirect(`/user/${employee._id}`);
+    } 
+    catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
+});
+
 
 router.get("/Newpassword",async(req,res,next)=>
 {
@@ -99,25 +170,28 @@ router.get("/Newpassword",async(req,res,next)=>
 
 router.post("/newpass", async (req, res, next) => 
 {
-  try {
-    const {code, newpassword, confirmpassword } = req.body;
+  try 
+  {
+    const { code, newpassword, confirmpassword } = req.body;
     const Empl = await Employee.findOne({ code: code });
 
-    if (Empl) {
+    if (Empl) 
+    {
       if (newpassword === confirmpassword) 
       {
-        Empl.password = newpassword;
+        const hashedPassword = await hashPassword(newpassword);
+        Empl.password = hashedPassword;
         await Empl.save();
-        console.log( "Password updated successfully");
+        console.log("Password updated successfully");
         res.redirect("/signup");
       } 
       else 
       {
         res.status(400).json({ message: "Passwords do not match" });
       }
-    }
+    } 
     else 
-     {
+    {
       res.status(404).json({ message: "Employee not found" });
     }
   } 

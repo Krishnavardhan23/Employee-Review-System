@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body 
 {
     box-sizing: border-box;
@@ -5,6 +6,12 @@ body
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #ccaaaa; 
+    font-weight: 400;
+  font-style: normal;
+  font-size: 1.2em;
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  font-family: 'Roboto', sans-serif;
 }
 
   .navbar 
