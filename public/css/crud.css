@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+=======
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+>>>>>>> 5a1e47e401c84a480805ce79b77542a38f5a3594
 body {
   box-sizing: border-box;
   margin: 0;
@@ -9,10 +13,14 @@ body {
   font-size: 1.2em;
   background: -webkit-linear-gradient(left, #25c481, #25b7c4);
   background: linear-gradient(to right, #25c481, #25b7c4);
+<<<<<<< HEAD
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   
+=======
+  font-family: 'Roboto', sans-serif;
+>>>>>>> 5a1e47e401c84a480805ce79b77542a38f5a3594
 }
 
 .navbar {

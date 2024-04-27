@@ -17,7 +17,7 @@ const submittedWorkSchema = new mongoose.Schema({
 });
 
 
-submittedWorkSchema.index({ createdAt: 1 }, { expireAfterSeconds: 180 });
+submittedWorkSchema.index({ createdAt: 1 }, { expireAfterSeconds: 259200 });
 const SubmittedWork = mongoose.model('SubmittedWork', submittedWorkSchema);
 async function deleteEntryAfterTimeout(userId) {
     try 

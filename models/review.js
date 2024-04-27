@@ -23,7 +23,7 @@ const reviewSchema = new mongoose.Schema({
     timestamps: true 
 });
 
-reviewSchema.index({ createdAt: 1 }, { expireAfterSeconds: 180 });
+reviewSchema.index({ createdAt: 1 }, { expireAfterSeconds: 259200 });
 
 const Review = mongoose.model('Review', reviewSchema);
 module.exports = Review;
