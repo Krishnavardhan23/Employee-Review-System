@@ -1,13 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2em;
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  font-family: 'Roboto', sans-serif;
 }
+
 
 .navbar {
   height: 150px;
-  background-color: #333;
+  background: linear-gradient(to bottom, #333333, #000000);
+box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,11 +73,34 @@ th {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: italic;
+
+}
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  font-size: 1.1em;
+  color: #fff;
+  text-transform: uppercase;
+
+}
+th{
+  background-color: rgba(255,255,255,0.3);
+}
+td{
+  padding: 20px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 1.1em;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
   background-color: #f2f2f2;
-}
+} */
 
 tr
 {
@@ -79,7 +111,7 @@ tr
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(124, 104, 78, 0.5);
+  background-color: #dddddd;
   padding: 10px 20px;
   border-radius: 5px;
 }
@@ -100,7 +132,7 @@ tr
 #content a {
   display: inline-block;
   padding: 8px 12px;
-  background-color: #007bff;
+  background-color: #000080;
   color: white;
   text-decoration: none;
   border-radius: 4px;
@@ -113,7 +145,7 @@ tr
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #000080;
   color: white;
   text-decoration: none;
   border: none;
@@ -123,4 +155,8 @@ tr
 
 .btn:hover {
   background-color: #0056b3;
+}
+
+a{
+  color:#ff6f61
 }

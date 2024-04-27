@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Work</title>
+    <link rel="stylesheet" href="/css/submitwork.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <a href="/user/<%= userId %>">Back</a>
+            <h1>Submit Work</h1>
+        </div>
+        <div class="right">
+            <form action="/submitwork/<%= user._id %>/<%= task._id %>" method="POST">
+                <div>
+                    <label for="githubLink">GitHub Link repository:</label>
+                    <input type="text" id="githubLink" name="githubLink" placeholder="Enter GitHub Link" required>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

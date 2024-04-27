@@ -20,7 +20,7 @@
             <h1>Welcome Back </h1>
         </div>
         <div class="right">
-            <h1><%= user.empname %></h1>
+            <h1 style="margin-left:-57%;font-size:1.8em"><%= user.empname %></h1>
             <button><a href="/signup">LOG OUT</a></button>
         </div>
     </nav>
@@ -31,9 +31,9 @@
           <a id="add-user" href="/Dashboard/<%= user._id %>">Dashboard</a>
       </div>
       <div id="divbar">
-        <h2>working Employees</h2>
+        <h2 style="margin-left: 3%;">Working Employees</h2>
         <div class="search">
-            <input type="text" placeholder="Search User">
+            <input style="margin-left: -6%"type="text" placeholder="Search User"id="enter">
             <img src="/img/search.png">
         </div>
 
@@ -63,6 +63,29 @@
         
       </section>
 
-      
+      <script>
+       
+        document.getElementById("enter").addEventListener("input",search);
+        function search()
+        {
+            const searchText=document.getElementById("enter").value.toLowerCase();
+            const tableRows=document.querySelectorAll("#content table tr");
+            for(let i=0;i<tableRows.length;i++)
+            {
+                const row=tableRows[i];
+                const name=row.cells[0].textContent.toLowerCase();
+                if(name.includes(searchText))
+                {
+                    row.style.display="";
+                }
+                else
+                {
+                    row.style.display="none";
+                }
+            }
+        }
+
+
+      </script>
 </body>
 </html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER-PAGE</title>
+    <link rel="icon" href="img/3.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/user.css">
+    <!-- <link rel="stylesheet" href="/public/css/user2.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("https://images.pexels.com/photos/389818/pexels-photo-389818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="left">
+        </div>
+        <div class="middle">
+           <h1>Welcome Back <%= user.empname %></h1>
+        </div>
+        <div class="right">
+            <% var rating = parseFloat(user.rating); %>
+            <img src="/img/rating-<%= Math.round(rating * 10) %>.png" class="navimg">
+        </div>   
+    </div>
+    <div class="sidebar">
+        <i style="font-size:36px;margin-top:1%;margin-left:1%;"class='fas'>&#xf2bd;</i>    
+        <img class="back-button"src="/img/back-button.png">
+        <img class="unknown" src="/img/3.png">yellow
+        <div class="attributes">
+        <!-- <p><a href="#about">About Me</a></p>
+        <p><a href="#Tasks">Tasks</a></p> -->
+        <p><a href="/reviews?userId=<%= user._id %>">Reviews</a></p>
+        <p><a href="/otherworks?userId=<%= user._id %>">ALL works</a></p>
+        </div>   
+        <button><a href="/">Log out</a></button>
+        <p style="margin-top:10px"><strong><a href="https://github.com/"target="_blank">Github</a> </strong> <i style="font-size:30px;" class="fa-brands fa-github"></i></p>
+        <p><strong><a href="https://slack.com/intl/en-in/"target="_blank">Slack</a> </strong><i style="font-size:30px;" class="fa-brands fa-slack"></i></p>
+        <p><strong><a href="https://in.linkedin.com/"target="_blank">Linkedin </a></strong> <i style="font-size:30px;"class="fa-brands fa-linkedin"></i></p>
+        <% if(user.Employeestatus === "Admin" || user.Employeestatus === "Manager") { %>
+            <div class="adminacc">
+                <form action="/user/login-as-admin/<%= user._id %>" method="post">
+                    <input type="text" name="code" placeholder="Admin Access Only">
+                    <button type="submit">Enter as Admin</button>
+                </form>            
+            </div>
+        <% } %>
+        
+        
+    </div>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body complementary">
+                        <h1 class="text-center">User Details</h1>
+                        <hr>
+                        <div class="text-center">
+                            <!-- <img src="/img/unknown.jpg" class="img-fluid rounded-circle" alt="User Image" style="max-width: 150px;"> -->
+                            <h2><%= user.empname %></h2>
+                            <p><strong>Age:</strong> <%= user.age %></p>
+                            <p><strong>Role:</strong> <%= user.role %></p>
+                            <p><strong>Employee Status:</strong> <%= user.Employeestatus %></p>
+                            <p><strong>Rating:</strong> <%= user.rating %></p>
+                            <p><strong>Projects Pending:</strong> <%= user.projectspending %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body glass-effect" style="color: black;">
+                        <h2 class="text-center">Pending Tasks</h2>
+                        <hr>
+                        <div class="row">
+                            <% for (let i = 0; i < tasks.length; i++) { %>
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><%= tasks[i].title %></h5>
+                                            <p class="card-text"><%= tasks[i].description %></p>
+                                            <p class="card-text"><strong>Due Date:</strong> <%= tasks[i].dueDate.toLocaleDateString() %></p>
+                                            <p class="card-text"><strong>Assigned By:</strong> <%= assignedBy[i].empname %></p>
+                                            <a href="/submitwork/<%= user._id %>/<%= tasks[i]._id %>"><button class="btn btn-primary btn-block">Submit</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/user.js"></script>
+</body>
+</html>

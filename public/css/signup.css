@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 *{
     margin:0;
     padding:0;
@@ -13,6 +14,11 @@ body{
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
+    font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size:1.1em;
 
 
 }
@@ -85,6 +91,8 @@ body{
     border: none;
     outline: none;
     background-color: inherit;
+    font-family:  "Work Sans", sans-serif;
+    font-size: 1.1em;
 
 }
 i{
@@ -96,7 +104,8 @@ i{
     height: 6vh;
     width:12vh;
     border: none;
-    background-color: rgba(40,40,40,0.2);
+    background-color: linear-gradient(135deg, #e67e22, #d35400);
+
     border-radius: 5vh;
     cursor:pointer;
     font-weight: bold;
@@ -181,6 +190,12 @@ a{
 input::placeholder{
     color:white;
     font-size: 1.3rem;
+}
+button{
+    font-family:  "Work Sans", sans-serif;
+    font-size: 1.1em;
+    background-color: linear-gradient(135deg, #e67e22, #d35400);
+
 }
 
 

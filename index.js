@@ -9,10 +9,13 @@ const port = 8000;
 const app = express();
 
 // View engine
-app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/css', express.static(__dirname + '/public/css'));
-app.use('/js', express.static(__dirname + '/public/js'));
+// app.set('view engine', 'ejs');
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.use('/css', express.static(__dirname + '/public/css'));
+// app.use('/js', express.static(__dirname + '/public/js'));
+
+app.set('view engine','ejs');
+app.use(express.static("public"));
 
 // Parse URL-encoded bodies (sent by HTML forms)
 app.use(bodyParser.urlencoded({ extended: true }));

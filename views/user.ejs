@@ -27,23 +27,26 @@
     <div class="sidebar">
         <i style="font-size:36px;margin-top:1%;margin-left:1%;"class='fas'>&#xf2bd;</i>    
         <img class="back-button"src="/img/back-button.png">
-        <img class="unknown" src="/img/3.png">
+        <img class="unknown" src="/img/3.png">yellow
         <div class="attributes">
         <p><a href="#about">About Me</a></p>
         <p><a href="#Tasks">Tasks</a></p>
         <p><a href="/reviews?userId=<%= user._id %>">Reviews</a></p>
-
         </div>   
         <button><a href="/">Log out</a></button>
         <p style="margin-top:10px"><strong><a href="https://github.com/"target="_blank">Github</a> </strong> <i style="font-size:30px;" class="fa-brands fa-github"></i></p>
         <p><strong><a href="https://slack.com/intl/en-in/"target="_blank">Slack</a> </strong><i style="font-size:30px;" class="fa-brands fa-slack"></i></p>
         <p><strong><a href="https://in.linkedin.com/"target="_blank">Linkedin </a></strong> <i style="font-size:30px;"class="fa-brands fa-linkedin"></i></p>
-        <div class="adminacc">
-            <form action="/user/login-as-admin/<%= user._id %>" method="post">
-                <input type="text" name="code" placeholder="Admin Access Only">
-                <button type="submit">Enter as Admin</button>
-            </form>            
-        </div>
+        <% if(user.Employeestatus === "Admin" || user.Employeestatus === "Manager") { %>
+            <div class="adminacc">
+                <form action="/user/login-as-admin/<%= user._id %>" method="post">
+                    <input type="text" name="code" placeholder="Admin Access Only">
+                    <button type="submit">Enter as Admin</button>
+                </form>            
+            </div>
+        <% } %>
+        
+        
     </div>
     
     <section id="about">

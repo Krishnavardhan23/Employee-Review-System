@@ -4,8 +4,8 @@ const empSchema = mongoose.Schema
 ({
     code: { type: String,unique:true },
     mail:{type: String,unique:true},
-    empname: { type: String, required: true },
-    password: { type: String},
+    empname: { type: String, required: true,unique:true },
+    password: { type: String,minlength:6},
     age: { type: Number },
     Employeestatus: { type: String, enum: ['Admin', 'Employee','Manager'],default:'Employee', required: true },
     role: { type: String, enum: ['Web Developer', 'Graphic Designer', 'Data Analyst'], required: true },

@@ -1,0 +1,30 @@
+/* Define Analogous color palette */
+.analogous {
+    --background: #f0e68c;
+    --primary-text: #b38800;
+    --secondary-text: #876c00;
+    --accent: #d9a744;
+    --muted: #e0d7c0;
+}
+
+/* Apply Analogous color palette to card-body divs */
+.card-body {
+    background-color: var(--background);
+    color: var(--primary-text);
+}
+
+.card-body h1, .card-body h2, .card-body h3, .card-body h4, .card-body h5, .card-body h6 {
+    color: var(--accent);
+}
+
+.card-body p {
+    color: var(--secondary-text);
+}
+
+.card-body hr {
+    border-color: var(--muted);
+}
+
+
+
+

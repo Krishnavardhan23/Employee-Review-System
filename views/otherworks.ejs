@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emp-Works</title>
+    <link rel="stylesheet" href="/css/empworks.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left">
+            <a href="/user/<%= user._id %>">Back</a>
+        </div>
+        <div class="middle">
+            <img src="/img/3.png" class="nav-img">  
+        </div>
+        <div class="right">
+            <h1><%= user.empname %></h1>
+        </div>
+    </nav>
+    <div class="cont">
+        <% for (let i = 0; i < works.length; i++) 
+        { %>
+            <div class="employee">
+                <p><strong>Submitted By:</strong><%= employee %></p>
+                <p><strong>GitHub Link:</strong><a target="_blank" href="<%= works[i].githubLink %>">Work here</a></p>
+                <p><strong>Date Submitted:</strong> <%= works[i].createdAt.toLocaleString() %></p>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

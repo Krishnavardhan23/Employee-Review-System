@@ -286,6 +286,10 @@ a{
     font-size: 1.3em;
 }
 
+h5{
+    margin-left:25%;
+}
+
 
 
 @media only screen and (max-width: 768px) {
@@ -339,3 +343,49 @@ a{
         font-size: 0.8rem;
     }
 }
+
+
+/* Define Complementary color palette */
+.complementary {
+    --background: #f0e68c;
+    --primary-text: #0079a1;
+    --secondary-text: #005270;
+    --accent: #a12e2e;
+    --muted: #e0d7c0;
+}
+
+/* Apply Complementary color palette to card-body divs */
+.card-body {
+    background-color: var(--background);
+    color: var(--primary-text);
+}
+
+.card-body h1, .card-body h2, .card-body h3, .card-body h4, .card-body h5, .card-body h6 {
+    color: var(--accent);
+}
+
+.card-body p {
+    color: var(--secondary-text);
+}
+
+.card-body hr {
+    border-color: var(--muted);
+}
+
+.glass-effect {
+    background-color: rrgba(255, 255, 255, 0); /* White color with 20% transparency */
+    border-radius: 10px; /* Border radius for rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1); /* Box shadow for glossy effect */
+    backdrop-filter: blur(5px); /* Blur effect for glass effect */
+}
+
+
+.btn{
+    width:100px;
+}
+
+
+
+
+
+

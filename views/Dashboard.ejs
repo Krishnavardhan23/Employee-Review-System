@@ -16,15 +16,15 @@
             <h1>Welcome Back </h1>
         </div>
         <div class="right">
-            <h1><%= user.empname %></h1>
+            <h1 style="margin-left:-57%;font-size:1.8em"><%= user.empname %></h1>
         </div>
     </nav>
     <div id="divbar">
         <a class="btn" href="/admin/<%= user._id %>">Back</a>
         <h2>ALL users List</h2>
         <div class="search">
-            <input type="text" placeholder="Search User">
-            <img src="/img/search.png">
+            <input type="text" placeholder="Search User"id="enter">
+            <img style="margin-left:-15%"src="/img/search.png" >
         </div>
       </div>
       <section id="content">
@@ -102,7 +102,31 @@ function promoteEmployee(employeeId, adminCode)
         console.error('Error promoting employee:', error);
         alert('Error promoting employee. Please try again.');
     });
+
 }
+
+document.getElementById("enter").addEventListener("input", search);
+
+function search() {
+    const searchText = document.getElementById("enter").value.toLowerCase();
+    const tableRows = document.querySelectorAll("#content table tr");
+
+    for(let i=0;i<tableRows.length;i++)
+    {
+        const row=tableRows[i];
+        const name=row.cells[0].textContent.toLowerCase();
+        if (name.includes(searchText)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    }
+}
+
+
+
+
+
 
     </script>
 </body>
