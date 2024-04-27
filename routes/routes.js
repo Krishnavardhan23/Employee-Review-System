@@ -6,10 +6,7 @@ const Work=require('../models/assignwork');
 const transporter=require('../controller/userauth');
 const hashPassword=require('../utils/hashpassword');
 const comparePassword = require("../utils/comparepassword");
-<<<<<<< HEAD
 const { SubmittedWork, deleteEntryAfterTimeout } = require("../models/submit");
-=======
->>>>>>> 5a1e47e401c84a480805ce79b77542a38f5a3594
 
 router.get("/", async (req, res) => 
 {
@@ -119,11 +116,8 @@ router.get("/user/:id", async (req, res) => {
 
 
 router.post('/login', async (req, res) => {
-<<<<<<< HEAD
   const { code, password: plainPassword } = req.body; 
-=======
-  const { code, password: plainPassword } = req.body; // Destructure password from req.body
->>>>>>> 5a1e47e401c84a480805ce79b77542a38f5a3594
+  // const { code, password: plainPassword } = req.body; // Destructure password from req.body
   if (code) {
     try {
       const existingEmployee = await Employee.findOne({ code });
@@ -134,11 +128,8 @@ router.post('/login', async (req, res) => {
       if (existingEmployee.password) {
         return res.status(400).json({ message: "Password already set for this employee" });
       }
-<<<<<<< HEAD
-      const hashedPassword = await hashPassword(plainPassword); 
-=======
+      // const hashedPassword = await hashPassword(plainPassword); 
       const hashedPassword = await hashPassword(plainPassword); // Use plainPassword here
->>>>>>> 5a1e47e401c84a480805ce79b77542a38f5a3594
       existingEmployee.password = hashedPassword;
       await existingEmployee.save();
       return res.redirect("/signup");
